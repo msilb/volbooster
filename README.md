@@ -1,4 +1,4 @@
-# Long Volatility Trading Strategy VolBooster
+# Long Volatility Trading Strategy :zap:VolBooster:zap:
 
 ## Overview
 
@@ -6,21 +6,21 @@ This is a sample long vol algorithmic trading strategy that is using [scalanda](
 
 ## Algorithm Description
 
-The algorithm itself is quite simple and is mostly focused on trading FX and precious metals around news announcements. Basic idea is that we know that when the unexpected news hits the market, volatility rises. Usually we observe this kind of rise in volatility around central bank announcements or release of NFP numbers. To capture this volatility we could either enter a long option contract, for which we would have to pay the premium, or we attempt to replicate the short-term option payoff using spot trading, which is what we are focusing on here. Here are the main steps carried out by the algorithm:
+The algorithm itself is quite simple and is mostly focused on trading FX and precious metals around news announcements. Basic idea is that we know that when the unexpected news hits the market, volatility rises. Usually such action is observed at the time of major events taking place, such as central bank announcements or release of [NFP](https://en.wikipedia.org/wiki/Nonfarm_payrolls) numbers. To capture this volatility we could either enter a long option contract, for which we would have to pay a premium, or we can attempt to replicate the short-term option payoff using spot trading, which is what we are focusing on here. Here are the main steps carried out by the algorithm:
 
 1. Program timer to start trading strategy after a news announcement (e.g. ECB conference tomorrow at 2pm CET).
-2. Start monitoring the spreads for the instrument(s) we want to trade (usually the broker increases the spread if there is a surprise announcement, we don't want to be trading in that environment).
+2. Start monitoring the spreads for the instrument(s) we want to trade (usually Oanda increases the spreads when there is a surprise announcement, and we don't want to be trading in that environment).
 3. Once the spreads come down, we fetch the candlestick prices for the previous interval, i.e. if we are operating our trading strategy in 5min interval mode and current time is 2.30pm, we fetch the 5min candle spanning 2.25pm-2.30pm.
 4. We place exactly 2 stop orders: buy order at the high and sell order at the low of the previous candlestick.
 5. If none of the orders is hit during this interval, we update the stop orders by moving them to the new high/low of the previous candle.
 6. If one of the orders gets hit, we update the opposite order by increasing the size x2, such that in case of a reversal we remain invested (just in the opposite direction).
 7. Every interval (e.g. every 5min) we update the open order by moving it to the high/low of the previous candle if it's buy or sell order, respectively.
 8. If the single open stop order is hit, we need to place a new one of size x2 at the high/low of the previous candle.
-9. Rinse and repeat until our stop timer is triggered, which closes all positions and orders and kills the algo!
+9. Rinse and repeat until our stop timer is triggered, which closes all open positions and orders and kills the algo!
 
 Pretty simple, no?
 
-Ok, here is a small example. Say, we have ECB's Draghi speaking tomorrow at 2pm CET in Frankfurt. We expect he might announce a surprise rate change or say something that might send EUR/USD, USD/JPY or XAU/USD either plummeting or skyrocketing, but we're not sure about the direction. Fret not, VolBooster to the rescue! We start off by defining our `VolBoosterConfigs` in `Trader.scala`:
+Ok, here is a small example. Say, we have ECB's Draghi speaking tomorrow at 2pm CET in Frankfurt. We expect he might announce a surprise rate cut/hike or say something that might send EUR/USD, USD/JPY or XAU/USD either plummeting or skyrocketing, but we're not sure about the direction. Fret not, :zap:VolBooster:zap: to the rescue! We start off by defining our `VolBoosterConfigs` in `Trader.scala`:
 ```scala
 val VolBoosterConfigs = Set(
     VolBooster.Config("EUR_USD", 185000, M5, 12, 40, 13, 40, maxSpread = 0.00035),

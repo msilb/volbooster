@@ -37,3 +37,5 @@ One picture says more than 1000 words and here is a sample chart showing how the
 ![Sample chart displaying trading strategy `VolBooster`](images/volbooster_sample.png)
 
 As you can see we would have made 0.15% on this trade.
+
+Happy trading! :four_leaf_clover:

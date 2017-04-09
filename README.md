@@ -39,3 +39,15 @@ One picture says more than 1000 words and here is a sample chart showing how the
 As you can see we would have made 0.15% on this trade.
 
 Happy trading! :four_leaf_clover:
+
+## Contributing
+
+1. Fork it!
+2. Create your feature branch: git checkout -b my-new-feature
+3. Commit your changes: git commit -am 'Add some feature'
+4. Push to the branch: git push origin my-new-feature
+5. Submit a pull request :D
+
+## License
+
+[MIT License](LICENSE)

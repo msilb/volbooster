@@ -36,7 +36,7 @@ One picture says more than 1000 words and here is a sample chart showing how the
 
 ![Sample chart displaying trading strategy `VolBooster`](images/volbooster_sample.png)
 
-As you can see we would have made 0.15% on this trade.
+As you can see in the first short trade we would have made +0.15% while the second long trade would bring a loss of -0.07% for a net PnL of +0.08%. Obviously any intra-candle volatility cannot be modeled here.
 
 Happy trading! :four_leaf_clover:
 

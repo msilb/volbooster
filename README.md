@@ -30,7 +30,7 @@ val VolBoosterConfigs = Set(
 ```
 As you can see we define a set of 3 instruments with their respective sizes and spread thresholds to start trading at 12:40 and stop trading at 13:40, i.e. we trade all of them for exactly one hour. Each config entry creates a separate instance of `VolBooster` and all of them operate independently of each other.
 
-A few words on the spread threshold or `maxSpread` we have defined above. As you can see all of them are different and probably have to be because each currency pair has a different _typical_ spread. For example, Oanda's typical spread in calm market periods is about 1-2pips (0.0001-0.0002). We say, anything less than 3.5 pips we consider _back to normal_ and can start trading.
+A few words on the spread threshold or `maxSpread` we have defined above. As you can see all of them are different and probably have to be because each currency pair has a different _typical_ spread. For example, Oanda's typical EUR/USD spread in calm market periods is about 1-2pips (0.0001-0.0002). We say, anything less than 3.5 pips we consider _back to normal_ and can start trading.
 
 One picture says more than 1000 words and here is a sample chart showing how the first trade might be entered and closed when running `VolBooster`:
 
